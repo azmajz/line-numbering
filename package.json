@@ -1,0 +1,61 @@
+{
+  "name": "line-numbering",
+  "displayName": "Line Numbering",
+  "description": "Quickly add or remove line numbers to selected text with a right-click in the editor.",
+  "version": "1.0.0",
+  "publisher": "azeem",
+  "author": {
+    "name": "Azm Ajz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aazmajz/line-numbering"
+  },
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "lineNumbering.addNumbers",
+        "title": "Add Line Numbers"
+      },
+      {
+        "command": "lineNumbering.removeNumbers",
+        "title": "Remove Line Numbers"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "lineNumbering.addNumbers",
+          "when": "editorHasSelection",
+          "group": "z_commands"
+        },
+        {
+          "command": "lineNumbering.removeNumbers",
+          "when": "editorHasSelection",
+          "group": "z_commands"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.103.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "eslint": "^9.34.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
